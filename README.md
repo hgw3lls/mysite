@@ -5,7 +5,7 @@
 
 ## Tech Stack
 - Vite (build tool and dev server)
-- Vanilla JavaScript, HTML, and CSS
+- React + JSX, HTML, and CSS
 - GitHub Actions + GitHub Pages (deployment)
 
 ## Archive Navigation Modes
