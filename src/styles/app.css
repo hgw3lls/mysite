@@ -1,5 +1,6 @@
 :root {
   color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -15,4 +16,155 @@ body,
 
 body {
   background: #f6f3ea;
+  color: #111;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.entry-panel,
+.shelf-panel {
+  border: 1px solid #111;
+}
+
+.entry-panel {
+  min-height: calc(100vh - 64px);
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  padding: 32px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.entry-title {
+  margin: 0;
+  font-size: clamp(42px, 10vw, 104px);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.entry-name {
+  margin: 0;
+  font-size: clamp(24px, 4vw, 40px);
+  text-transform: uppercase;
+}
+
+.button-outline {
+  width: fit-content;
+  padding: 10px 18px;
+  border: 1px solid #111;
+  background: #f6f3ea;
+  color: #111;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.button-outline:focus-visible {
+  outline: 2px solid #a12424;
+  outline-offset: 2px;
+}
+
+.status-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.status-pill {
+  border: 1px solid #111;
+  padding: 4px 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.status-pill--alert {
+  color: #a12424;
+}
+
+.shelf-panel {
+  display: grid;
+  gap: 12px;
+  padding: 20px;
+}
+
+.shelf-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+  border-bottom: 1px solid #111;
+  padding-bottom: 12px;
+}
+
+.shelf-title {
+  margin: 0;
+  font-size: clamp(28px, 5vw, 56px);
+  text-transform: uppercase;
+}
+
+.system-label {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #a12424;
+  text-transform: uppercase;
+}
+
+.shelf-row {
+  display: grid;
+  grid-template-columns: 160px repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.shelf-label,
+.shelf-slot {
+  border: 1px solid #111;
+  min-height: 48px;
+  display: grid;
+  place-items: center;
+  text-transform: uppercase;
+}
+
+.shelf-label {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.shelf-slot {
+  background: #f1ede3;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.shelf-slot:nth-child(odd) {
+  background: #f6f3ea;
+}
+
+.back-button {
+  margin-top: 8px;
+}
+
+@media (max-width: 860px) {
+  .app-shell {
+    padding: 16px;
+  }
+
+  .entry-panel {
+    min-height: calc(100vh - 32px);
+    padding: 20px;
+  }
+
+  .shelf-row {
+    grid-template-columns: 1fr;
+  }
 }
