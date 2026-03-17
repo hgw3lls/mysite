@@ -1,42 +1,53 @@
-# Media Archive Portfolio
-
-A React + Vite site built as a **media archive system**: records, rooms, shelves, and index views rather than a marketing-style portfolio.
+# mysite
 
 ## Concept Summary
-The interface frames projects as archive records. Navigation behaves like entering rooms, opening files, and scanning a catalog. The visual system is brutalist and restrained: monochrome palette, thin rules, sharp panels, metadata-forward copy.
-
-## Archive Modes
-- **Shelf Mode** — primary bookshelf structure (rows = categories, spines = records).
-- **Map Mode** — floorplan/diagram with room nodes, path lines, and a `YOU ARE HERE` marker.
-- **List Mode** — dense finding-aid index with sortable-style tabular scanning.
+`mysite` is a static, archive-style web experience focused on browsing and discovering collection content through multiple navigation modes.
 
 ## Tech Stack
-- React 18
-- Vite 5
-- Vanilla CSS (custom brutalist design system)
-- GitHub Actions + GitHub Pages deployment
+- Vite (build tool and dev server)
+- Vanilla JavaScript, HTML, and CSS
+- GitHub Actions + GitHub Pages (deployment)
 
-## Setup
-```bash
-npm install
-npm run dev
-```
+## Archive Navigation Modes
+- **Shelf mode**: browse items in a visual shelf-style layout for quick, spatial scanning.
+- **Map mode**: explore archive entries by location/context using a map-oriented view.
+- **List / Index mode**: review items in a structured, text-forward index for fast lookup.
 
-## Build
+## Local Setup
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the dev server:
+   ```bash
+   npm run dev
+   ```
+
+## Build Instructions
+Build production assets:
+
 ```bash
 npm run build
+```
+
+(Optional) Preview the production build locally:
+
+```bash
 npm run preview
 ```
 
-## Deploy
-This repo is configured for GitHub Pages project-site hosting.
+## Deployment Notes (GitHub Pages)
+This project is configured for GitHub Pages **project-site** deployment.
 
-- Repo name: `mysite`
-- Vite base path: `/mysite/`
-- Workflow: `.github/workflows/deploy.yml`
-- Deployed URL shape: `https://<owner>.github.io/mysite/`
+- **Inferred repository name:** `mysite`
+- **Base path:** `/mysite/`
+- **Site URL shape:** `https://<owner>.github.io/mysite/`
 
-After merge to `main`:
-1. Open **Settings → Pages**
-2. Set **Source** to **GitHub Actions**
-3. Wait for the workflow to publish `dist`
+The Vite `base` option is set to `/mysite/` so built assets resolve correctly from the Pages subpath.
+
+### Enable GitHub Pages after merge
+1. Push/merge to `main` so the workflow runs.
+2. In GitHub, open **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Wait for the **Deploy Vite site to GitHub Pages** workflow to complete.
+5. Open the deployed URL shown in the workflow summary.
