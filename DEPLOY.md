@@ -1,18 +1,34 @@
-# Deployment Readiness (Vite + GitHub Pages)
+# Deployment Guide (Vite + GitHub Pages)
 
-## Local development
-- Install deps: `npm install`
-- Start dev server: `npm run dev`
+## Run locally
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start dev server:
+   ```bash
+   npm run dev
+   ```
 
-## Production build
-- Build: `npm run build`
-- Optional local preview: `npm run preview`
+## Build for production
+```bash
+npm run build
+```
+Build output is generated in `dist/`.
 
-## GitHub Pages notes
-- This repo is configured as a **project site** with Vite base path: `/mysite/`.
-- Workflow file: `.github/workflows/deploy.yml` (push to `main` triggers build + deploy).
-- In GitHub Settings → Pages, set **Source** to **GitHub Actions**.
+## Deploy flow
+Deployment is handled by GitHub Actions in `.github/workflows/deploy.yml`.
 
-## Known caveats
-- If `npm install` fails due registry/network policy (e.g., `403`), builds will fail locally until access to npm registry is available.
-- If the repository name changes, update `base` in `vite.config.js` to match the new `/<repo-name>/` path.
+- Trigger: push to `main` (or manual `workflow_dispatch`)
+- Build job:
+  - installs dependencies
+  - runs `npm run build`
+  - uploads `./dist` as the Pages artifact
+- Deploy job:
+  - publishes that artifact to GitHub Pages
+
+## GitHub Pages base path
+This repo is configured as a project site using:
+- `base: '/mysite/'` in `vite.config.js`
+
+If the repository name changes, update the base path to match `/<repo-name>/`.
